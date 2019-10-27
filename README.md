@@ -1,4 +1,4 @@
-# php7.0-pgsql
+#php7.0-pgsql
 --------------
 app for display databases from postgresql db using php language
 
