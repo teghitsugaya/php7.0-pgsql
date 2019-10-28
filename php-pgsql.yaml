@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pgsql
+spec: 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pgsql
+    spec:
+      containers:
+      - name: pgsql-app
+        image: teghitsugaya/php-pgsql
+        ports:
+        - containerPort: 80
+          name: web-port
