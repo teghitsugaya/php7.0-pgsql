@@ -1,15 +1,16 @@
 #php7.0-pgsql
 --------------
-app for display databases from postgresql db using php language
+App for display databases from postgresql db using php language
 
 
 
 #listingfile folder
 -------------------
+```sh
 -rw-r--r--  1 root root  314 Oct 26 22:37 apache-config.conf
 -rw-r--r--  1 root root  856 Oct 26 23:33 Dockerfile
 -rw-r--r--  1 root root  908 Oct 26 18:40 index.php
-
+```
 
 #apache-config
 --------------
@@ -32,6 +33,7 @@ apache-config.conf
 
 #index.php
 ----------
+```sh
 <?php
 
 $host = '10.102.36.138';
@@ -83,12 +85,13 @@ pg_free_result($result);
 
 echo '</table></body></html>';
 ?>
-
+```
 
 
 
 #Dockerfile
 ------------
+```sh
 FROM php:7.1-apache
 RUN apt-get update \
   && apt-get install --no-install-recommends -y libpq-dev \
@@ -105,29 +108,34 @@ ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-
+```
 
 
 #executions
 ----------
+```sh
 docker build -t php-pgsql:latest
 docker run -d --name=php-pgsql -p 8090:80 php-pgsql
-
+```
 
 
 
 #testing
 --------
+```sh
 curl localhost:8090
-
+```
 
 #push to dockerhub account
 --------------------------
+```sh
 docker push teghitsugaya/php-pgsql:latest
 docker tag php-pgsql:latest teghitsugaya/php-pgsql:latest
+```
 
 #onboard to kubernetes
 ##deployment
+```sh
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -145,8 +153,10 @@ spec:
         ports:
         - containerPort: 80
           name: web-port
-          
+```
+
 ##service
+```sh
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -164,3 +174,4 @@ spec:
         ports:
         - containerPort: 80
           name: web-port
+```
