@@ -1,10 +1,10 @@
-#php7.0-pgsql
+php7.0-pgsql
 --------------
 App for display databases from postgresql db using php language
 
 
 
-#listingfile folder
+listingfile folder
 -------------------
 ```sh
 -rw-r--r--  1 root root  314 Oct 26 22:37 apache-config.conf
@@ -12,7 +12,7 @@ App for display databases from postgresql db using php language
 -rw-r--r--  1 root root  908 Oct 26 18:40 index.php
 ```
 
-#apache-config
+apache-config
 --------------
 ```sh
 apache-config.conf 
@@ -31,7 +31,7 @@ apache-config.conf
 </VirtualHost>
 ```
 
-#index.php
+index.php
 ----------
 ```sh
 <?php
@@ -87,9 +87,7 @@ echo '</table></body></html>';
 ?>
 ```
 
-
-
-#Dockerfile
+Dockerfile
 ------------
 ```sh
 FROM php:7.1-apache
@@ -111,7 +109,7 @@ WORKDIR /usr/src/myapp
 ```
 
 
-#executions
+executions
 ----------
 ```sh
 docker build -t php-pgsql:latest
@@ -120,20 +118,20 @@ docker run -d --name=php-pgsql -p 8090:80 php-pgsql
 
 
 
-#testing
+testing
 --------
 ```sh
 curl localhost:8090
 ```
 
-#push to dockerhub account
+push to dockerhub account
 --------------------------
 ```sh
 docker push teghitsugaya/php-pgsql:latest
 docker tag php-pgsql:latest teghitsugaya/php-pgsql:latest
 ```
 
-#onboard to kubernetes
+onboard to kubernetes
 ##deployment
 ```sh
 apiVersion: extensions/v1beta1
@@ -155,7 +153,7 @@ spec:
           name: web-port
 ```
 
-##service
+service
 ```sh
 apiVersion: extensions/v1beta1
 kind: Deployment
