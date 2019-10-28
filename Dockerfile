@@ -5,9 +5,6 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-#RUN a2enmod rewrite 
-#CMD chown www-data:www-data /etc/apache2/sites-enabled/*
-#CMD chown www-data:www-data /var/www/*
 
 ENV APACHE_RUN_USER www-data 
 ENV APACHE_RUN_GROUP www-data 
@@ -19,11 +16,5 @@ EXPOSE 80
 ADD index.php /var/www/site/index.php
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
-#CMD chown www-data:www-data /etc/apache2/sites-enabled/*
-#CMD chown www-data:www-data /var/www/*
-#CMD /usr/sbin/apache2ctl -D FOREGROUND
-
-
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-#CMD [ "php", "./index.php" ]
