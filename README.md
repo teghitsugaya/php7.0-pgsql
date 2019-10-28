@@ -132,29 +132,9 @@ docker tag php-pgsql:latest teghitsugaya/php-pgsql:latest
 
 onboard to kubernetes
 ---------------------
-#deployment
-```sh
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: pgsql
-spec: 
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: pgsql
-    spec:
-      containers:
-      - name: pgsql-app
-        image: teghitsugaya/php-pgsql
-        ports:
-        - containerPort: 80
-          name: web-port
-```
 
-#service
 ```sh
+---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -172,4 +152,23 @@ spec:
         ports:
         - containerPort: 80
           name: web-port
+---	  
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pgsql
+spec: 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pgsql
+    spec:
+      containers:
+      - name: pgsql-app
+        image: teghitsugaya/php-pgsql
+        ports:
+        - containerPort: 80
+          name: web-port
+---	  
 ```
