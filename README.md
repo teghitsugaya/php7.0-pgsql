@@ -146,7 +146,7 @@ spec:
       - name: pgsql-app
         image: teghitsugaya/php-pgsql
         ports:
-        - containerPort: 5000
+        - containerPort: 80
           name: web-port
           
 ##service
@@ -165,5 +165,5 @@ spec:
       - name: pgsql-app
         image: teghitsugaya/php-pgsql
         ports:
-        - containerPort: 5000
+        - containerPort: 80
           name: web-port
