@@ -3,7 +3,6 @@ php7.0-pgsql
 App for display databases from postgresql db using php language
 
 
-
 listingfile folder
 -------------------
 ```sh
@@ -132,7 +131,8 @@ docker tag php-pgsql:latest teghitsugaya/php-pgsql:latest
 ```
 
 onboard to kubernetes
-##deployment
+---------------------
+#deployment
 ```sh
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -153,7 +153,7 @@ spec:
           name: web-port
 ```
 
-service
+#service
 ```sh
 apiVersion: extensions/v1beta1
 kind: Deployment
