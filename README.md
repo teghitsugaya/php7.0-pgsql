@@ -13,6 +13,7 @@ app for display databases from postgresql db using php language
 
 #apache-config
 --------------
+```sh
 apache-config.conf 
 <VirtualHost *:80>
  DocumentRoot /var/www/site
@@ -27,7 +28,7 @@ apache-config.conf
   CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
-
+```
 
 #index.php
 ----------
