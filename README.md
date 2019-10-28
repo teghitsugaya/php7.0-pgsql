@@ -95,10 +95,6 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-#RUN a2enmod rewrite 
-#CMD chown www-data:www-data /etc/apache2/sites-enabled/*
-#CMD chown www-data:www-data /var/www/*
-
 ENV APACHE_RUN_USER www-data 
 ENV APACHE_RUN_GROUP www-data 
 
